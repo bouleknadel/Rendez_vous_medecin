@@ -7,7 +7,7 @@ class UserModel {
     }
 
     public function getUser($username, $password) {
-        $query = "SELECT * FROM users WHERE username=? AND password=?";
+        $query = "SELECT * FROM users WHERE email=? AND password=?";
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$username, $password]);
         return $stmt->fetch(PDO::FETCH_ASSOC);

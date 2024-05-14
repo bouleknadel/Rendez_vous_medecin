@@ -4,7 +4,7 @@ require_once('model.php');
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
+    $username = $_POST['email'];
     $password = $_POST['password'];
 
     // Establish database connection
@@ -25,7 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($user) {
             // User exists, set session
             $_SESSION['user'] = $user;
-            header("Location: welcome.php"); // Redirect to welcome page
+            if($user['type']==1){
+             echo "welcome patient"  ;
+            }
+            else
+            echo "welcome medcin";
+        
         } else {
             // User not found, redirect to login page
             header("Location: login_form.php?error=1");
