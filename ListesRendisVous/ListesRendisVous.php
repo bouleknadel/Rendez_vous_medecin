@@ -73,10 +73,28 @@
             justify-content: space-between;
             margin: 0 20px;
         }
+        .btn_container{
+            width : 50%;
+            text-align: right;
+        }
         i {
         margin-right: 4px;
         font-weight: 900;
         font-size: 18px;
+        }
+        @media screen  and (max-width: 768px){
+            body {
+            }
+            .btn_container{
+                width: 100%;
+                font-size: 15px;
+                text-align: center;
+            }
+         .header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         }
         }
     </style>
 </head>
