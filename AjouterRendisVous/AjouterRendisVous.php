@@ -39,7 +39,7 @@
                                 <div class="input-group">
                                     <label class="label"><i class="fa-solid fa-calendar"></i> Date souhaitée pour la rendez-vous <span style="color:red">*</span> </label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="date_rendezvous">
+                                        <input type="date" class="input--style-4 js-datepicker" type="text" name="date_rendezvous">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                         <p class="err" id="date_err" style="color: red;"></p>
                                     </div>
