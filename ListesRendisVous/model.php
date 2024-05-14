@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function afficherRendezVous()
 {
     $servername = "localhost";
@@ -14,8 +14,10 @@ function afficherRendezVous()
         echo "Erreur de connexion : " . $e->getMessage();
     }
 
-    $sql = "SELECT * FROM `rendez_vous`"; 
+    $sql = "SELECT * FROM `rendez_vous` where patient_id=:userid"; 
+   
     $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':userid', $_SESSION['user']['id']);
 
     try {
         $stmt->execute();
