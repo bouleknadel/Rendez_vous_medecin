@@ -44,20 +44,18 @@
 
         .containerr {
             background-color: #FBFBFB;
-            margin: 22px 0px;
+            margin: 20px 0px;
             min-height: 80vh;
-            padding: 20px;
+            padding: 30px;
             width : 96%;
             border-radius: 20px;
-            box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.41);
-            -webkit-box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.41);
-            -moz-box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.41);
-
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         }
 
         .containerr h1 {
             text-align: center;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         table th {
@@ -75,8 +73,11 @@
             justify-content: space-between;
             margin: 0 20px;
         }
-
-        .btn_container {}
+        i {
+        margin-right: 4px;
+        font-weight: 900;
+        font-size: 18px;
+        }
     </style>
 </head>
 
@@ -95,11 +96,11 @@
             <table id="myTable" class="display">
                 <thead>
                     <tr>
-                        <th scope="col">Date de Rendez-vous</th>
-                        <th scope="col">Heure de Rendez-vous</th>
-                        <th scope="col">Médecin</th>
-                        <th scope="col">Type de Rendez-vous</th>
-                        <th scope="col">Motif</th>
+                        <th scope="col"><i class="fa-solid fa-calendar"></i> Date de Rendez-vous</th>
+                        <th scope="col"><i class="fa-solid fa-clock"></i> Heure de Rendez-vous</th>
+                        <th scope="col"><i class="fa-solid fa-user-doctor"></i> Médecin</th>
+                        <th scope="col"><i class="fa-solid fa-list-alt"></i> Type de Rendez-vous</th>
+                        <th scope="col"><i class="fa-solid fa-pencil"></i> Motif</th>
                     </tr>
                 </thead>
                 <tbody>
