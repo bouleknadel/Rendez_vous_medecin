@@ -24,7 +24,7 @@ function addRdv($date_rendezvous,$heure_rendezvous, $motif_rendezvous,$medecin_s
     $stmt->bindParam(':medecin_souhaite', $medecin_souhaite);
     $stmt->bindParam(':type_rendezvous', $type_rendezvous);
     $stmt->bindParam(':assurance_maladie', $assurance_maladie);
-    $stmt->bindParam(': :patient_id', $patient_id);
+    $stmt->bindParam(':patient_id', $patient_id);
 
 
     try {

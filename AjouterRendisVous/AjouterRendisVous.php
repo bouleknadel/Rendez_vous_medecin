@@ -33,7 +33,7 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Formulaire de Rendez-vous Médical</h2>
-                    <form method="POST">
+                    <form action="Contoller.php" method="POST">
                         <div class="input-group">
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <div class="input-group">
