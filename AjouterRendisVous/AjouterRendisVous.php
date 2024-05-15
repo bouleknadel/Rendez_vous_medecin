@@ -125,7 +125,10 @@
                              color: white;
     text-decoration: initial;" href="../ListesRendisVous/Contoller.php">Annuler</a></button>
                             <button class="btn btn--radius-2 btn--blue" type="submit" id="Soumettre">Soumettre <i class="fa-solid fa-arrow-right" style="margin-left: 4px;"></i></button>
-                        </div>                        
+                        </div> 
+                        <div class="p-t-20">
+                            <p style="color : orange;font-weight:600;"><i class="fa-solid fa-triangle-exclamation"></i> Les champs suivis d'un astérisque (*) sont obligatoires. Veuillez vous assurer de remplir toutes les informations requises.</p>
+                        </div>                       
                     </form>
                 </div>
             </div>

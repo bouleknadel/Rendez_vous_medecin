@@ -70,6 +70,7 @@
                             <button class="btn btn--radius-2 btn--red" style="background-color: rgb(208, 62, 62);" type="button"><a style="color: white;text-decoration: initial;" href="../ListesRendisVous/Contoller.php">Annuler</a></button>
                             <button class="btn btn--radius-2 btn--blue" type="submit" id="Soumettre">Soumettre <i class="fa-solid fa-arrow-right" style="margin-left: 4px;"></i></button>
                         </div>
+                       
                     </form>
                 </div>
             </div>
