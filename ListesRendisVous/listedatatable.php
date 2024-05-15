@@ -33,9 +33,15 @@
 <script src="lib/jquery/jquery-3.7.1.min.js"></script>
 <script src="lib/datatables/dataTables.js"></script>
 <script>
-    $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
+    $(function () {
+        $("#myTable")
+          .DataTable({
+            responsive: true,
+            lengthChange: false,
+            autoWidth: false,
+            buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+          })
+        })
 </script>
 </body>
 </html>

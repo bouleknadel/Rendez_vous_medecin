@@ -14,7 +14,8 @@ function afficherRendezVous()
         echo "Erreur de connexion : " . $e->getMessage();
     }
 
-    $sql = "SELECT * FROM `rendez_vous` where patient_id=:userid"; 
+    $sql = "SELECT rendez_vous.*,users.nom,users.prenom FROM `rendez_vous`,`users` where patient_id=:userid
+    and users.id=rendez_vous.medecin_id;"; 
    
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':userid', $_SESSION['user']['id']);

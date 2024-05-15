@@ -104,7 +104,7 @@
         <div class="header">
             <h1>Liste des rendez-vous</h1>
             <div class="btn_container">
-                <a href="#" class="btn btn-sm btn-primary btn-lg active" role="button" aria-pressed="true"><i class="fa-solid fa-plus"></i> Ajouter rendez-vous</a>
+                <a href="../AjouterRendisVous/AjouterRendisVous.php" class="btn btn-sm btn-primary btn-lg active" role="button" aria-pressed="true"><i class="fa-solid fa-plus"></i> Ajouter rendez-vous</a>
                 <a href="#" class="btn btn-sm btn-danger btn-lg active" role="button" aria-pressed="true"><i class="fa-solid fa-right-from-bracket"></i> Déconnecter</a>
             </div>
 
@@ -127,7 +127,7 @@
                         echo "<tr>";
                         echo "<td>" . $row['Date'] . "</td>";
                         echo "<td>" . $row['Heure'] . "</td>";
-                        echo "<td>" . $row['medecin_id'] . "</td>";
+                        echo "<td>" . $row['nom'] ." ". $row['prenom']. "</td>";
                         echo "<td>" . $row['type'] . "</td>";
                         echo "<td>" . $row['Motif'] . "</td>";
                         echo "</tr>";
@@ -143,9 +143,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="lib/datatables/dataTables.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
+        $(function () {
+        $("#myTable")
+          .DataTable({
+            responsive: true,
+            lengthChange: true,
+            autoWidth: true,
+           
+          })
+        })
     </script>
 </body>
 
