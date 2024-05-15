@@ -1,5 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+ $servername = "localhost";
+ $username = "root";
+ $password = "";
+ $dbname = "ihm";
+
+ try {
+     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ } catch (PDOException $e) {
+     echo "Erreur de connexion : " . $e->getMessage();
+ }
+ $sql = "SELECT * FROM `users` where type=2"; 
+   
+    $stmt = $conn->prepare($sql);
+    try {
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Erreur de sélection : " . $e->getMessage();
+    }
+
+?>
 
 <head>
     <!-- Required meta tags-->
@@ -69,10 +92,13 @@
                         <div class="input-group">
                             <label class="label"><i class="fa-solid fa-user-doctor"></i> Médecin souhaité <span style="color:red">*</span></label>
                             <select class="input--style-4 inp" name="medecin_souhaite" style="width: 100%;height: 50px;">
-                                <option value="0"></option>
-                                <option value="1">Médecin 1</option>
-                                <option value="1">Médecin 2</option>
-                                <option value="1">Médecin 3</option>
+                                <option value="0">Choisissez le medecin</option>
+                                <?php
+                                foreach($result as $row)
+                               echo  '<option value="'.$row['id'].'">'.$row['nom'].' '.$row['prenom'].'</option>'
+                                ?>
+                              
+    
                             </select>
                             <p class="err" id="medecin_err" style="color: red;"></p>
                         </div>
@@ -82,9 +108,9 @@
                             <label class="label"><i class="fa-solid fa-list-alt"></i> Type de rendez-vous <span style="color:red">*</span></label>
                             <select class="input--style-4 inp" name="type_rendezvous" style="width: 100%;height: 50px;">
                                 <option value="0">Choisissez le type de rendez-vous</option>
-                                <option value="1">Consultation en personne</option>
-                                <option value="1">Téléconsultation</option>
-                                <option value="1">Autre</option>
+                                <option value="Consultation en personne">Consultation en personne</option>
+                                <option value="Téléconsultation">Téléconsultation</option>
+                                <option value="Autre">Autre</option>
                             </select>
                             <p class="err" id="type_err" style="color: red;"></p>
                             
@@ -95,7 +121,9 @@
                             <input class="input--style-4 inp" type="text" name="assurance_maladie">
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--red" style="background-color: rgb(208, 62, 62);" type="button">Annuler</button>
+                            <button class="btn btn--radius-2 btn--red" style="background-color: rgb(208, 62, 62);" type="button"><a style="
+                             color: white;
+    text-decoration: initial;" href="../ListesRendisVous/Contoller.php">Annuler</a></button>
                             <button class="btn btn--radius-2 btn--blue" type="submit" id="Soumettre">Soumettre <i class="fa-solid fa-arrow-right" style="margin-left: 4px;"></i></button>
                         </div>                        
                     </form>

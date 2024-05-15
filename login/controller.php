@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // User exists, set session
             $_SESSION['user'] = $user;
             if($user['type']==1){
-             echo "welcome patient"  ;
+             header(("Location:../ListesRendisVous/Contoller.php"));
             }
             else
             echo "welcome medcin";
