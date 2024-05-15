@@ -24,9 +24,15 @@
     <!-- Main CSS-->
     <link href="../css/main.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 
 <body>
+<a href="../guide/index.html" class="btn btn-primary" style="position: fixed; top: 20px; left: 20px; z-index: 9999; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); width: auto;">
+    Guide d'utilisation <i class="fa-solid fa-question-circle"></i>
+</a>
+
 <div class="page-wrapper bg-gra-02 font-poppins" style="padding-top: 40px;padding-bottom:40px;">
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
