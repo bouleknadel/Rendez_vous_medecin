@@ -38,22 +38,26 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Inscription</h2>
-                    <form action="Contoller.php" method="POST">
+                    <form action="Controller.php" method="POST">
                         <div class="input-group">
                             <label class="label"><i class="fa-solid fa-user"></i> Nom <span style="color:red">*</span></label>
-                            <input class="input--style-4 inp" type="text" id="nom" name="nom" required value="<?php echo isset($_POST['nom']) ? $_POST['nom'] : '' ?>">
+                            <input class="input--style-4 inp" type="text" id="nom" name="nom"  value="<?php echo isset($_POST['nom']) ? $_POST['nom'] : '' ?>">
+                            <div id="nom_error" class="error-message"></div>
                         </div>
                         <div class="input-group">
                             <label class="label"><i class="fa-solid fa-user"></i> Prénom <span style="color:red">*</span></label>
                             <input class="input--style-4 inp" type="text" id="prenom" name="prenom" required value="<?php echo isset($_POST['prenom']) ? $_POST['prenom'] : '' ?>">
+                            <div id="prenom_error" class="error-message"></div>
                         </div>
                         <div class="input-group">
                             <label class="label"><i class="fa-solid fa-envelope"></i> Email <span style="color:red">*</span></label>
                             <input class="input--style-4 inp" type="email" id="email" name="email" required value="<?php echo isset($_POST['email']) ? $_POST['email'] : '' ?>">
+                            <div id="email_error" class="error-message"></div>
                         </div>
                         <div class="input-group">
                             <label class="label"><i class="fa-solid fa-calendar"></i> Date de naissance <span style="color:red">*</span></label>
-                            <input class="input--style-4 inp" type="text" id="dateNaissance" name="dateNaissance" required value="<?php echo isset($_POST['dateNaissance']) ? $_POST['dateNaissance'] : '' ?>">
+                            <input class="input--style-4 inp" type="date" id="dateNaissance" name="dateNaissance" required value="<?php echo isset($_POST['dateNaissance']) ? $_POST['dateNaissance'] : '' ?>">
+                            <div id="date_error" class="error-message"></div>
                         </div>
                         <div class="input-group">
                             <label class="label"><i class="fa-solid fa-user"></i> Type <span style="color:red">*</span></label>
@@ -62,26 +66,30 @@
                                 <option value="1" <?php echo (isset($_POST['type']) && $_POST['type'] == 'patient') ? 'selected' : '' ?>>Patient</option>
                                 <option value="2" <?php echo (isset($_POST['type']) && $_POST['type'] == 'medecin') ? 'selected' : '' ?>>Médecin</option>
                             </select>
+                            <div id="type_error" class="error-message"></div>
                         </div>
                         <div class="input-group">
                             <label class="label"><i class="fa-solid fa-lock"></i> Mot de passe <span style="color:red">*</span></label>
-                            <input class="input--style-4 inp" type="password" name="mot_de_passe">
+                            <input id="mot_de_passe" class="input--style-4 inp" type="password" name="mot_de_passe">
+                            <div id="pass_error" class="error-message"></div>
                         </div>
                         <div class="input-group">
                             <label class="label"><i class="fa-solid fa-lock"></i> Confirmer mot de passe <span style="color:red">*</span></label>
-                            <input class="input--style-4 inp" type="password" name="confirm_mot_de_passe">
+                            <input id="confirm_mot_de_passe" class="input--style-4 inp" type="password" name="confirm_mot_de_passe">
+                            <div id="passc_error" class="error-message"></div>
                         </div>
 
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--red" style="background-color: rgb(208, 62, 62);" type="button"><a style="color: white;text-decoration: initial;" href="../ListesRendisVous/Contoller.php">Annuler</a></button>
+                            <button class="btn btn--radius-2 btn--red" style="background-color: rgb(208, 62, 62);" ><a style="color: white;text-decoration: initial;" href="../login/login_form.php">Annuler</a></button>
                             <button class="btn btn--radius-2 btn--blue" type="submit" id="Soumettre">Soumettre <i class="fa-solid fa-arrow-right" style="margin-left: 4px;"></i></button>
                         </div>
-                       
+                        
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <!-- Jquery JS-->
@@ -90,56 +98,12 @@
     <script src="vendor/select2/select2.min.js"></script>
     <script src="vendor/datepicker/moment.min.js"></script>
     <script src="vendor/datepicker/daterangepicker.js"></script>
+    
 
     <!-- Main JS-->
-    <script src="js/global.js"></script>
-    <script>
-      const form = document.getElementById('Soumettre'); // Get the submit button
-
-form.addEventListener('click', (event) => {
-  event.preventDefault(); // Prevent default form submission
-
-  const date = document.getElementsByName('date_rendezvous')[0].value;
-  const heure = document.getElementsByName('heure_rendezvous')[0].value;
-  const medecin = document.getElementsByName('medecin_souhaite')[0].value;
-  const type = document.getElementsByName('type_rendezvous')[0].value;
-
-  let errorMessage = false; // Flag to track errors
-
-  // Reset error messages
-  document.getElementById('date_err').innerHTML = '';
-  document.getElementById('heure_err').innerHTML = '';
-  document.getElementById('medecin_err').innerHTML = '';
-  document.getElementById('type_err').innerHTML = '';
-
-  // Validate required fields
-  if (date === '') {
-    document.getElementById('date_err').innerHTML = 'La date est requise.';
-    errorMessage = true;
-  }
-
-  if (heure === '') {
-    document.getElementById('heure_err').innerHTML = 'L\'heure est requise.';
-    errorMessage = true;
-  }
-
-  if (medecin === '0') { 
-    document.getElementById('medecin_err').innerHTML = 'Veuillez sélectionner un médecin.';
-    errorMessage = true;
-  }
-
-  if (type === '0') {
-    document.getElementById('type_err').innerHTML = 'Le type de rendez-vous est requis.';
-    errorMessage = true;
-  }
-
-  // Submit form if no errors
-  if (!errorMessage) {
-    form.form.submit(); // Submit the form using the parent form element
-  }
-});
-
-    </script>
+    <script src="inscri.js"></script>
+    
+     
     
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

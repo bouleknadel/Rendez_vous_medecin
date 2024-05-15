@@ -105,7 +105,7 @@
             <h1>Liste des rendez-vous</h1>
             <div class="btn_container">
                 <a href="../AjouterRendisVous/AjouterRendisVous.php" class="btn btn-sm btn-primary btn-lg active" role="button" aria-pressed="true"><i class="fa-solid fa-plus"></i> Ajouter rendez-vous</a>
-                <a href="#" class="btn btn-sm btn-danger btn-lg active" role="button" aria-pressed="true"><i class="fa-solid fa-right-from-bracket"></i> Déconnecter</a>
+                <a href="../logout.php" class="btn btn-sm btn-danger btn-lg active" role="button" aria-pressed="true"><i class="fa-solid fa-right-from-bracket"></i> Déconnecter</a>
             </div>
 
         </div>
@@ -147,8 +147,8 @@
         $("#myTable")
           .DataTable({
             responsive: true,
-            lengthChange: true,
-            autoWidth: true,
+            lengthChange: false,
+            autoWidth: false,
            
           })
         })

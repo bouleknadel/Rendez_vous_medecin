@@ -65,7 +65,7 @@ Email ou mot de pass incorrecte</p>';
 <button id="submit" type="submit" ripple>Se connecter</button>
 </div>
 </form>
-<footer><a href="#0">Creer un compte</a></footer>
+<footer><a href="../inscription/vieww.php">Creer un compte</a></footer>
 </div>
 <script src="jquery-3.7.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

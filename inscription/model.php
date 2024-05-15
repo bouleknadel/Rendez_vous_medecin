@@ -34,7 +34,7 @@ class User {
             $stmt->bindParam(":dateNaissance", $this->dateNaissance);
             $stmt->bindParam(":type", $this->type);
             $stmt->execute();
-            echo "User created successfully.";
+            // echo "User created successfully.";
         } catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
