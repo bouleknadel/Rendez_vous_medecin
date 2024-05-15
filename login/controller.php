@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              header(("Location:../ListesRendisVous/Contoller.php"));
             }
             else
-            echo "welcome medcin";
+            header(("Location:../Medecin/Contoller.php"));
         
         } else {
             // User not found, redirect to login page
