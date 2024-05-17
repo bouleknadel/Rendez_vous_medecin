@@ -98,12 +98,13 @@
     <script src="vendor/select2/select2.min.js"></script>
     <script src="vendor/datepicker/moment.min.js"></script>
     <script src="vendor/datepicker/daterangepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     
 
     <!-- Main JS-->
     <script src="inscri.js"></script>
-    
-     
+ 
     
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

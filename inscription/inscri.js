@@ -154,7 +154,23 @@ else{
     // Affichage des erreurs
     if (errors.length > 0) {
     } else {
-      form.submit(); // Soumet le formulaire si aucune erreur n'est présente
+      Swal.fire({
+        title: "Votre compte a été bien créé.",
+        icon: "success",
+        showCancelButton: false,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "ok"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+        }
+      });
+      //form.submit(); // Soumet le formulaire si aucune erreur n'est présente
     }
   });
 });

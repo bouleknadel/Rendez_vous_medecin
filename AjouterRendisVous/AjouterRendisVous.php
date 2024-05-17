@@ -142,6 +142,7 @@
     <script src="vendor/select2/select2.min.js"></script>
     <script src="vendor/datepicker/moment.min.js"></script>
     <script src="vendor/datepicker/daterangepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Main JS-->
     <script src="js/global.js"></script>
@@ -150,7 +151,6 @@
 
 form.addEventListener('click', (event) => {
   event.preventDefault(); // Prevent default form submission
-
   const date = document.getElementsByName('date_rendezvous')[0].value;
   const heure = document.getElementsByName('heure_rendezvous')[0].value;
   const medecin = document.getElementsByName('medecin_souhaite')[0].value;
@@ -187,7 +187,24 @@ form.addEventListener('click', (event) => {
 
   // Submit form if no errors
   if (!errorMessage) {
-    form.form.submit(); // Submit the form using the parent form element
+    Swal.fire({
+  title: "Votre rendez-vous est bien enregistrer",
+  icon: "success",
+  showCancelButton: false,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "ok"
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+  }
+});
+
+    //form.form.submit(); // Submit the form using the parent form element
   }
 });
 
